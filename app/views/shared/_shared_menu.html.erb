@@ -1,0 +1,85 @@
+<script>
+default_url = jQuery(location).attr('href');
+default_sharetext = document.title;
+img = "http://assets.demohour.com/images/logo.png?1319145102"
+default_summary = "summary test"
+function renren(sharetext, url) {
+  if(sharetext == undefined){sharetext = default_sharetext}else{sharetext=sharetext}
+  if(url == undefined){url = default_url}
+  window.open("http://share.renren.com/share/buttonshare.do?link="+url+"&title="+encodeURIComponent(sharetext+url))
+http://share.renren.com/share/buttonshare.do?link=http%3A%2F%2Fdemohour.com%2Fprojects%2F297265&title=%E5%9B%9B%E8%BD%B4%E9%A3%9E%E8%A1%8C%E5%99%A8+%7C+%E7%82%B9%E5%90%8D%E6%97%B6%E9%97%B4+-+%E9%A2%84%E8%B4%AD%E4%B8%80%E4%B8%AA%E6%A2%A6%E6%83%B3#nogo
+
+}
+
+function douban(sharetext, url) {
+  if(sharetext == undefined){sharetext = default_sharetext}else{sharetext=sharetext}
+  if(url == undefined){url = default_url}
+  window.open("http://shuo.douban.com/!service/share?image=" + encodeURIComponent(img) + "&href="+ url + "&name=" + encodeURIComponent(sharetext) )
+}
+
+function sina(sharetext, url) {
+  if(sharetext == undefined){sharetext = default_sharetext}else{sharetext=sharetext}
+  if(url == undefined){url = default_url}
+  window.open("http://v.t.sina.com.cn/share/share.php?title="+encodeURIComponent(sharetext+url)+"&pic=" + encodeURIComponent(img))
+}
+
+function qzone(sharetext, url, summary) {
+  if(sharetext == undefined){sharetext = default_sharetext}
+  if(url == undefined){url = default_url}
+  if(summary == undefined){summary = default_summary}
+
+  //window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title="+ encodeURIComponent(sharetext) + "&url="+ encodeURIComponent(url) + "&summary=" + encodeURIComponent(summary))
+  window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + encodeURIComponent(url) + "&title=" + encodeURIComponent(sharetext) + "&pics=" + encodeURIComponent(img) + "&summary=" + encodeURIComponent(summary))
+
+//http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fdemohour.com%2Fprojects%2F297265&title=%E5%9B%9B%E8%BD%B4%E9%A3%9E%E8%A1%8C%E5%99%A8+%7C+%E7%82%B9%E5%90%8D%E6%97%B6%E9%97%B4+-+%E9%A2%84%E8%B4%AD%E4%B8%80%E4%B8%AA%E6%A2%A6%E6%83%B3&pics=&summary=
+}
+
+function kaixin001(sharetext, url) {
+  if(sharetext == undefined){sharetext = default_sharetext}
+  if(url == undefined){url = default_url}
+  window.open("http://www.kaixin001.com/repaste/share.php?rtitle="+ encodeURIComponent(sharetext) + "&rurl="+ encodeURIComponent(url) + "&rcontent=" + encodeURIComponent(sharetext))
+}
+
+function tt(sharetext, url) {
+  if(sharetext == undefined){sharetext = default_sharetext}
+  if(url == undefined){url = default_url}
+  window.open("http://v.t.qq.com/share/share.php?title="+encodeURIComponent(sharetext+url)+"&pic=" + encodeURIComponent(img))
+}
+function sohu(sharetext, url, summary) {
+  if(sharetext == undefined){sharetext = default_sharetext}
+  if(url == undefined){url = default_url}
+ window.open("http://www.jiathis.com/send/send.php/?webid=tsohu&url=&title="+encodeURIComponent(sharetext+url)+"&uid=1&appkey=&ralateuid=&pic=" + encodeURIComponent(img) + "&summary=" + encodeURIComponent(summary))
+}
+
+function msn() {
+  url = "http://demohour.com/projects/297265"
+  window.open("http://profile.live.com/P.mvc#!/badge?url=" + encodeURIComponent(url) + "&screenshot=")
+}
+
+function copy(){	
+	var IE=false,c= default_sharetext + ' ' + default_url;	
+	var j = navigator.userAgent,l = /MSIE ([0-9]{1,}[\.0-9]{0,})/.exec(j);	
+	if (l && (l = parseFloat(RegExp.$1))){IE = true}	if(IE){		
+		clipboardData.setData('Text', c);		
+		alert("复制成功,请粘贴到你的QQ/MSN上推荐给你的好友！")	
+	}else if (prompt('你使用的是非IE核心浏览器，请按下 Ctrl+C 复制代码到剪贴板', c)) {		
+			alert('复制成功,请粘贴到你的QQ/MSN上推荐给你的好友！')	
+	} else {		
+			alert('目前只支持IE，请复制地址栏URL,推荐给你的QQ/MSN好友！')	
+	}
+};
+
+</script>
+
+<ul>
+	<li><a href="javascript:renren()" >人人</a></li>
+	<li><a href="javascript:douban()" >豆瓣</a></li>
+	<li><a href="javascript:sina()" >新浪微博</a></li>
+	<li><a href="javascript:qzone()" >QQ空间</a></li>
+	<li><a href="javascript:kaixin001()">开心</a></li>
+	<li><a href="javascript:tt()">腾讯微博</a></li>
+	<li><a href="javascript:sohu()">搜狐微博</a></li>
+	<li><a href="javascript:msn()">MSN</a></li>
+	<li><a href="javascript:copy()">复制</a></li>
+</ul>
+
