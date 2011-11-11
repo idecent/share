@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::SourcesController < Admin::BaseController
   def index
     @sources = Source.order("created_at desc").page params[:page]
