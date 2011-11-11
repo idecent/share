@@ -1,0 +1,30 @@
+<%= link_to "新建来源网站", new_admin_source_path %>
+<hr/>
+<h3>来源网站列表</h3>
+  <table>
+    <tr>
+      <th>名称</th>
+      <th>Logo</th>
+      <th>网址</th>
+      <th>memo</th>
+      <th>更新时间</th>
+      <th>操作</th>
+    </tr>
+    <% @sources.each do |s| %>
+      <tr>
+        <td><%=link_to s.title, admin_source_path(s) %></td>
+        <td><%=image_tag s.image_url, :width => 50, :height => 50 %></td>
+        <td><%= s.url %></td>
+        <td><%= truncate(s.summary, :length => 15) %></td>
+        <td><%= format_time s.updated_at %></td>
+        <td>
+           <%= link_to "删除", admin_source_path(s), :method => "delete", :confirm => "确定删除？" %>  |  
+           <%= link_to "编辑", edit_admin_source_path(s) %>
+	    </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= paginate @sources %>
+
+
