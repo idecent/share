@@ -16,7 +16,7 @@ function sina() {
 }
 
 function qzone() {
-  window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + $url + "&title=" + $title + "&pics=" + img + "&summary=" + $summary)
+  window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + $url + "&title=" + $title + "&pics=" + $img + "&summary=" + $summary)
 }
 
 function kaixin001() {
@@ -28,7 +28,7 @@ function tt() {
 }
 
 function sohu() {
- window.open("http://t.sohu.com/third/post.jsp?url=" + $url + "&title=" + $title + "&content=" + $summary + "&pic=")
+ window.open("http://t.sohu.com/third/post.jsp?url=" + $url + "&title=" + encodeURIComponent(document.title) + "&content=" + $summary + "&pic=")
 }
 
 function msn() {
