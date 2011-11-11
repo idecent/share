@@ -1,6 +1,7 @@
 url = encodeURIComponent(jQuery(location).attr('href'));
 title = encodeURIComponent(document.title);
 img = "http://assets.demohour.com/images/logo.png"
+summary = encodeURIComponent("你可以在这里发起项目，向公众推广，并获得资金和支持，去完成你的梦想！ 你也可以浏览各种有趣的项目，支持创意，预购大家的梦想！")
 function renren() {
   window.open("http://share.renren.com/share/buttonshare.do?link=" + url + "&title=" + title)
 }
@@ -26,7 +27,7 @@ function tt() {
 }
 
 function sohu() {
- window.open("http://t.sohu.com/third/post.jsp?url=" + url + "&title=" + title + ' ' + url + "&pic=" + img)
+ window.open("http://t.sohu.com/third/post.jsp?url=" + url)
 }
 
 function msn() {
