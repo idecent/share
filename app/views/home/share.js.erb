@@ -1,60 +1,58 @@
-
-var url = encodeURIComponent(jQuery(location).attr('href'));
-var title = encodeURIComponent(document.title);
-var img = encodeURIComponent("http://assets.demohour.com/images/logo.png");
-var summary = encodeURIComponent("你可以在这里发起项目，向公众推广，并获得资金和支持，去完成你的梦想！ 你也可以浏览各种有趣的项目，支持创意，预购大家的梦想！");
-
+var $url = encodeURIComponent(jQuery(location).attr('href'));
+var $title = encodeURIComponent(document.title);
+var $img = encodeURIComponent("http://assets.demohour.com/images/logo.png");
+var $summary = encodeURIComponent("你可以在这里发起项目，向公众推广，并获得资金和支持，去完成你的梦想！ 你也可以浏览各种有趣的项目，支持创意，预购大家的梦想！");
 
 function renren() {
-  window.open("http://share.renren.com/share/buttonshare.do?link=" + url + "&title=" + title)
+  window.open("http://share.renren.com/share/buttonshare.do?link=" + $url + "&title=" + $title)
 }
 
 function douban() {
-  window.open("http://shuo.douban.com/!service/share?image=" + img + "&href="+ url + "&name=" + title)
+  window.open("http://shuo.douban.com/!service/share?image=" + $img + "&href="+ $url + "&name=" + $title)
 }
 
 function sina() {
-  window.open("http://v.t.sina.com.cn/share/share.php?title=" + title + "&url=" + url + "&pic=" + img)
+  window.open("http://v.t.sina.com.cn/share/share.php?title=" + $title + "&url=" + $url + "&pic=" + $img)
 }
 
 function qzone() {
-  window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + img + "&summary=" + summary)
+  window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + $url + "&title=" + $title + "&pics=" + img + "&summary=" + $summary)
 }
 
 function kaixin001() {
-  window.open("http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary)
+  window.open("http://www.kaixin001.com/repaste/share.php?rtitle="+ $title + "&rurl="+ $url + "&rcontent=" + $summary)
 }
 
 function tt() {
-  window.open("http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img)
+  window.open("http://v.t.qq.com/share/share.php?title=" + $title + "&pic=" + $img)
 }
 
 function sohu() {
- window.open("http://t.sohu.com/third/post.jsp?url=" + url + "&title=" + title + "&content=" + summary + "&pic=")
+ window.open("http://t.sohu.com/third/post.jsp?url=" + $url + "&title=" + $title + "&content=" + $summary + "&pic=")
 }
 
 function msn() {
-  window.open("http://profile.live.com/P.mvc#!/badge?url=" + url + "&screenshot=")
+  window.open("http://profile.live.com/P.mvc#!/badge?url=" + $url + "&screenshot=")
 }
 
 function taobao() {
-	window.open("http://share.jianghu.taobao.com/share/addShare.htm?url=" + url)
+	window.open("http://share.jianghu.taobao.com/share/addShare.htm?url=" + $url)
 }
 
 function pengyou(){
-	window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url=" + url)
+	window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url=" + $url)
 }
 
 function netease(){
-	window.open("http://t.163.com/article/user/checkLogin.do?source=" + title + ' ' + url + "&images=" + img)
+	window.open("http://t.163.com/article/user/checkLogin.do?source=" + $title + ' ' + $url + "&images=" + $img)
 }
 
 function baidu_cang(){
-	window.open("http://cang.baidu.com/do/add?it=" + title + "&iu=" + url)
+	window.open("http://cang.baidu.com/do/add?it=" + $title + "&iu=" + $url)
 }
 
 function baidu_tieba(){
-	window.open("http://cang.baidu.com/do/add?it=" + title + "&iu=" + url)
+	window.open("http://cang.baidu.com/do/add?it=" + $title + "&iu=" + $url)
 }
 
 function copy(){	
