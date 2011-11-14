@@ -20,7 +20,7 @@ class Url < ActiveRecord::Base
     when 'sina'
       "http://v.t.sina.com.cn/share/share.php?title=" + title + "&url=" + url + "&pic=" + img
     when 'qzone'
-      "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + "&summary=" + summary
+      "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + "&summary="
     when 'kaixin'
       "http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary
     when 'tt'
