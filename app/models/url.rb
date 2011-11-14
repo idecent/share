@@ -5,7 +5,9 @@ require 'open-uri'
 
 class Url < ActiveRecord::Base
   belongs_to :source
-  belongs_to :user
+  
+  has_many :share_urls
+  has_many :users, :through => :share_urls
   
   def get_redirect_link(title, url, img, summary, type)
     url = url
@@ -24,7 +26,6 @@ class Url < ActiveRecord::Base
     when 'kaixin'
       "http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary
     when 'tt'
-      #"http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img
       app_key = "7cab629032e843419ea857ccea113ddb"
       "http://share.v.t.qq.com/index.php?c=share&a=index&url=#{url}&appkey=#{app_key}&assname=&title=#{title}&pic="
     when 'sohu'

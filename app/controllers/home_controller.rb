@@ -22,7 +22,13 @@ class HomeController < ApplicationController
     if params[:source] && params[:uid]
       @source = Source.find_by_title(params[:source])
       @user = @source.users.find_or_create_by_uid params[:uid]
-      @url = @source.urls.create(:origin => referer_url, :s_type => params[:type], :user_id => @user.id)
+      @url = @source.urls.find_by_origin(referer_url)
+      if @url.nil?
+        doc = Nokogiri::HTML.parse(open(referer_url), nil, "UTF-8")  
+        title = URI.escape doc.at_css("title").text
+        @url = @source.urls.create(:origin => referer_url, :title => title)
+      end
+      @share_url = @url.share_urls.create(:user_id => @user.id, :s_type => params[:type])
     end
     redirect_to @url.get_redirect_link(@source.title, referer_url, @source.image_url, @source.summary, params[:type])
   end

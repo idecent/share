@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111111102524) do
+ActiveRecord::Schema.define(:version => 20111114054659) do
+
+  create_table "share_urls", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "url_id"
+    t.string   "s_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sources", :force => true do |t|
     t.string   "url"
@@ -25,13 +33,10 @@ ActiveRecord::Schema.define(:version => 20111111102524) do
     t.string   "origin"
     t.string   "release"
     t.string   "short"
-    t.string   "content"
     t.string   "title"
-    t.integer  "user_id"
     t.integer  "source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "s_type"
   end
 
   create_table "users", :force => true do |t|
