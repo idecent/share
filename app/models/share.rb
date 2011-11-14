@@ -1,18 +1,6 @@
-# encoding: utf-8
-require 'rubygems'    
-require 'nokogiri'    
-require 'open-uri'    
-
-class Url < ActiveRecord::Base
-  belongs_to :source
-  belongs_to :user
-  
-  def get_redirect_link(title, url, img, summary, type)
-    url = url
-    doc = Nokogiri::HTML.parse(open(url), nil, "UTF-8")  
-    title = URI.escape doc.at_css("title").text
-    
-    case type
+class Share
+  def self.release_url(title, url, image, summary, s_type)
+    case s_type
     when 'renren'
       "http://share.renren.com/share/buttonshare.do?link=" + url + "&title=" + title
     when 'douban'
@@ -21,7 +9,7 @@ class Url < ActiveRecord::Base
       "http://v.t.sina.com.cn/share/share.php?title=" + title + "&url=" + url + "&pic=" + img
     when 'qzone'
       "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + img + "&summary=" + summary
-    when 'kaixin'
+    when 'kaixin001'
       "http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary
     when 'tt'
       "http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img
