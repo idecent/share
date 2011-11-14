@@ -1,0 +1,23 @@
+名称：<%=link_to URI.unescape(@x.title), @x.origin %><br/>
+链接：<%= @x.origin %>
+
+<hr/>
+<h3>详情:</h3>
+  <table>
+    <tr>
+      <th>分享用户ID</th>
+      <th>分享到</th>
+      <th>分享时间</th>
+    </tr>
+    <% @share_urls.each do |su| %>
+      <tr>
+        <td><%= su.user.uid %></td>
+        <td><%= su.s_type %></td>
+        <td><%= format_time su.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= paginate @share_urls %>
+
+

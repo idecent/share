@@ -1,0 +1,25 @@
+<%= @source.title %>
+
+
+<hr/>
+<h3>分享的URL列表:</h3>
+  <table>
+    <tr>
+      <th>页面Title</th>
+      <th>分享次数</th>
+      <th>操作</th>
+    </tr>
+    <% @urls.each do |url| %>
+      <tr>
+        <td><%=link_to URI.unescape(url.title), url.origin %></td>
+        <td><%= url.share_urls.count %></td>
+        <td>
+           <%= link_to "查看详情", admin_url_path(url.id) %>
+	    </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= paginate @urls %>
+
+

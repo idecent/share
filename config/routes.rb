@@ -5,6 +5,9 @@ Share::Application.routes.draw do
   
   namespace :admin do
     root :to => 'home#index'
-    resources :sources
+    resources :urls
+    resources :sources do
+      resources :urls
+    end
   end
 end

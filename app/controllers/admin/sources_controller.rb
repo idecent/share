@@ -39,4 +39,9 @@ class Admin::SourcesController < Admin::BaseController
     @source.delete
     redirect_to(admin_sources_path, :notice => "删除成功!")
   end
+  
+  def statistics
+    @source = Source.find params[:id]
+    
+  end
 end
