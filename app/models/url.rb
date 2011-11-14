@@ -20,13 +20,15 @@ class Url < ActiveRecord::Base
     when 'sina'
       "http://v.t.sina.com.cn/share/share.php?title=" + title + "&url=" + url + "&pic=" + img
     when 'qzone'
-      "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + img + "&summary=" + summary
+      "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + url + "&title=" + title + "&pics=" + "&summary=" + summary
     when 'kaixin'
       "http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary
     when 'tt'
-      "http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img
+      #"http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img
+      app_key = "7cab629032e843419ea857ccea113ddb"
+      "http://share.v.t.qq.com/index.php?c=share&a=index&url=#{url}&appkey=#{app_key}&assname=&title=#{title}&pic="
     when 'sohu'
-      "http://t.sohu.com/third/post.jsp?url=" + url + "&title=" + title + "&content=" + summary + "&pic="
+      URI.escape("http://t.sohu.com/third/post.jsp?url=" + url + "&title=" + title + "&content=" + summary + "&pic=")
     when 'msn'
       "http://profile.live.com/P.mvc#!/badge?url=" + url + "&screenshot="
     when 'taobao'

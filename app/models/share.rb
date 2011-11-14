@@ -12,7 +12,8 @@ class Share
     when 'kaixin001'
       "http://www.kaixin001.com/repaste/share.php?rtitle="+ title + "&rurl="+ url + "&rcontent=" + summary
     when 'tt'
-      "http://v.t.qq.com/share/share.php?title=" + title + "&pic=" + img
+      appkey = "7cab629032e843419ea857ccea113ddb"
+      "http://share.v.t.qq.com/index.php?c=share&a=index&url=#{url}&appkey=#{appkey}" + "&assname=&title=#{title}&pic="
     when 'sohu'
       "http://t.sohu.com/third/post.jsp?url=" + url + "&title=" + title + "&content=" + summary + "&pic="
     when 'msn'

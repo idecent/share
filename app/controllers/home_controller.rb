@@ -24,7 +24,6 @@ class HomeController < ApplicationController
       @user = @source.users.find_or_create_by_uid params[:uid]
       @url = @source.urls.create(:origin => referer_url, :s_type => params[:type], :user_id => @user.id)
     end
-    
     redirect_to @url.get_redirect_link(@source.title, referer_url, @source.image_url, @source.summary, params[:type])
   end
 end
