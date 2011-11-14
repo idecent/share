@@ -20,10 +20,23 @@ class Admin::SourcesController < Admin::BaseController
       redirect_to :action => "new", :error => @source.errors.full_messages
     end
   end
+  
+  def update
+    @source = Source.find params[:id]
+    if @source.update_attributes(params[:source])
+      redirect_to(admin_sources_path, :notice => "更新成功")
+    else
+      redirect_to :action => "edit", :error => @source.errors.full_messages
+    end
+  end
 
   def edit
+    @source = Source.find params[:id]
   end
   
   def destroy
+    @source = Source.find params[:id]
+    @source.delete
+    redirect_to(admin_sources_path, :notice => "删除成功!")
   end
 end
