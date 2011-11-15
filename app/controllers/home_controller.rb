@@ -36,11 +36,13 @@ class HomeController < ApplicationController
   def mail_form
     @url = params[:url]
     @subject = params[:title]
-    @content = @url + "\n" + @subject
+    @content = @url + @subject
   end
   
   def send_mail
     @to = params[:to]
     Pony.mail(:to => params[:to], :from => params[:from], :subject => params[:subject], :body => params[:content], :via => :sendmail)
+    
+    Rails.logger.info "Pony.mail(:to => '#{params[:to]}', :from => '#{params[:from]}', :subject => '#{params[:subject]}', :body => '#{params[:content]}', :via => :sendmail)"
   end
 end
