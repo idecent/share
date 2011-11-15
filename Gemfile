@@ -7,3 +7,5 @@ gem "jquery-rails"
 
 gem 'kaminari'
 gem 'nokogiri'
+
+gem "pony", "~> 1.3"

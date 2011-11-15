@@ -42,6 +42,8 @@ class Url < ActiveRecord::Base
       "http://cang.baidu.com/do/add?it=" + title + "&iu=" + url
     when 'baidu_tieba'
       "http://cang.baidu.com/do/add?it=" + title + "&iu=" + url
+    when 'email'
+      "/mail_form?title=" + title + "&url=" + url
     end
   end
 end

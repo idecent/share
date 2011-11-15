@@ -32,4 +32,15 @@ class HomeController < ApplicationController
     end
     redirect_to @url.get_redirect_link(@source.title, referer_url, @source.image_url, @source.summary, params[:type])
   end
+  
+  def mail_form
+    @url = params[:url]
+    @subject = params[:title]
+    @content = @url + "\n" + @subject
+  end
+  
+  def send_mail
+    @to = params[:to]
+    Pony.mail(:to => params[:to], :from => params[:from], :subject => params[:subject], :body => params[:content], :via => :sendmail)
+  end
 end
